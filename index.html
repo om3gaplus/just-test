@@ -1,0 +1,72 @@
+<html><script>
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var base=urlParams.get("base");
+var inp=atob(base);
+const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+function generateString(length) {
+		let result = '';
+		const charactersLength = characters.length;
+		for ( let i = 0; i < length; i++ ) {
+			result += characters.charAt(Math.floor(Math.random() * charactersLength));
+		}
+
+		return result;
+	}
+	var randsni=generateString(5);
+	if (inp.includes("vmess://")){
+		var mcibase=`{"add":"mci.hostgozarr.com","aid":"0","alpn":"","host":"mainhost","id":"e2440fba-21f0-4b45-8dee-6f165132e646","net":"ws","path":"/downloader/mainport","port":"443","ps":"mostafa","scy":"auto","sni":"snihost","tls":"tls","type":"","v":"2"}`;
+		var mtnbase=`{"add":"mtn.hostgozarr.com","aid":"0","alpn":"","host":"mainhost","id":"e2440fba-21f0-4b45-8dee-6f165132e646","net":"ws","path":"/downloader/mainport","port":"443","ps":"mostafa","scy":"auto","sni":"snihost","tls":"tls","type":"","v":"2"}`;
+		var rtlbase=`{"add":"rtl.hostgozarr.com","aid":"0","alpn":"","host":"mainhost","id":"e2440fba-21f0-4b45-8dee-6f165132e646","net":"ws","path":"/downloader/mainport","port":"443","ps":"mostafa","scy":"auto","sni":"snihost","tls":"tls","type":"","v":"2"}`;
+		inp=inp.replace("vmess://","");
+		inp=atob(inp);
+		const tdata = JSON.parse(inp);
+		mcibase=mcibase.replace("mostafa",tdata.ps+" mci");
+		mtnbase=mtnbase.replace("mostafa",tdata.ps+" mtn");
+		rtlbase=rtlbase.replace("mostafa",tdata.ps+" rtl");
+		mcibase=mcibase.replace("e2440fba-21f0-4b45-8dee-6f165132e646",tdata.id);
+		mtnbase=mtnbase.replace("e2440fba-21f0-4b45-8dee-6f165132e646",tdata.id);
+		rtlbase=rtlbase.replace("e2440fba-21f0-4b45-8dee-6f165132e646",tdata.id);
+		mcibase=mcibase.replace("mainport",tdata.port);
+		mtnbase=mtnbase.replace("mainport",tdata.port);
+		rtlbase=rtlbase.replace("mainport",tdata.port);
+		mcibase=mcibase.replace("mainhost",tdata.add);
+		mtnbase=mtnbase.replace("mainhost",tdata.add);
+		rtlbase=rtlbase.replace("mainhost",tdata.add);
+		mcibase=mcibase.replace("snihost",randsni+tdata.add);
+		mtnbase=mtnbase.replace("snihost",randsni+tdata.add);
+		rtlbase=rtlbase.replace("snihost",randsni+tdata.add);
+		document.write("vmess://"+btoa(mcibase)+"<br><br>");
+		document.write("vmess://"+btoa(mtnbase)+"<br><br>");
+		}
+		if (inp.includes("vless://")){
+		var mcibase="vless://mainuid@mciih.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname                                                                                          ";
+		var mtnbase="vless://mainuid@ircl.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname                                                                                          ";
+		var rtlbase="vless://mainuid@wffii.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname                                                                                          ";
+		var reuid= new RegExp("vless://(.*)?@");
+		var rehost= new RegExp("vless://.*?@(.*)?:");
+		var report= new RegExp("vless://.*?@.*?:([0-9]{2,5})");
+		var rename=new RegExp("vless://.*?@.*?:[0-9]{2,5}.*#(.*)");
+		
+		//===========================================================
+		
+		
+		mcibase=mcibase.replace("mainname",inp.match(rename)[1]+"%20mci");
+		mtnbase=mtnbase.replace("mainname",inp.match(rename)[1]+"%20mtn");
+		rtlbase=rtlbase.replace("mainname",inp.match(rename)[1]+"%20WiFi");
+		mcibase=mcibase.replace("mainuid",inp.match(reuid)[1]);
+		mtnbase=mtnbase.replace("mainuid",inp.match(reuid)[1]);
+		rtlbase=rtlbase.replace("mainuid",inp.match(reuid)[1]);
+		mcibase=mcibase.replace("mainport",inp.match(report)[1]);
+		mtnbase=mtnbase.replace("mainport",inp.match(report)[1]);
+		rtlbase=rtlbase.replace("mainport",inp.match(report)[1]);
+		mcibase=mcibase.replace("mainhost",inp.match(rehost)[1]);
+		mtnbase=mtnbase.replace("mainhost",inp.match(rehost)[1]);
+		rtlbase=rtlbase.replace("mainhost",inp.match(rehost)[1]);
+		mcibase=mcibase.replace("snihost",randsni+inp.match(rehost)[1]);
+		mtnbase=mtnbase.replace("snihost",randsni+inp.match(rehost)[1]);
+		rtlbase=rtlbase.replace("snihost",randsni+inp.match(rehost)[1]);
+		document.write("vmess://"+btoa(mcibase)+"<br><br>");
+		document.write("vmess://"+btoa(mtnbase)+"<br><br>");
+		}
+</script></html>
