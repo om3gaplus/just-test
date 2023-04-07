@@ -14,6 +14,31 @@ function generateString(length) {
 		return result;
 	}
 	var randsni=generateString(5);
+	if (inp.includes("vmess://")){
+		var mcibase=`{"add":"mci.hostgozarr.com","aid":"0","alpn":"","host":"mainhost","id":"e2440fba-21f0-4b45-8dee-6f165132e646","net":"ws","path":"/downloader/mainport","port":"443","ps":"mostafa","scy":"auto","sni":"snihost","tls":"tls","type":"","v":"2"}`;
+		var mtnbase=`{"add":"mtn.hostgozarr.com","aid":"0","alpn":"","host":"mainhost","id":"e2440fba-21f0-4b45-8dee-6f165132e646","net":"ws","path":"/downloader/mainport","port":"443","ps":"mostafa","scy":"auto","sni":"snihost","tls":"tls","type":"","v":"2"}`;
+		var rtlbase=`{"add":"rtl.hostgozarr.com","aid":"0","alpn":"","host":"mainhost","id":"e2440fba-21f0-4b45-8dee-6f165132e646","net":"ws","path":"/downloader/mainport","port":"443","ps":"mostafa","scy":"auto","sni":"snihost","tls":"tls","type":"","v":"2"}`;
+		inp=inp.replace("vmess://","");
+		inp=atob(inp);
+		const tdata = JSON.parse(inp);
+		mcibase=mcibase.replace("mostafa",tdata.ps+" mci");
+		mtnbase=mtnbase.replace("mostafa",tdata.ps+" mtn");
+		rtlbase=rtlbase.replace("mostafa",tdata.ps+" rtl");
+		mcibase=mcibase.replace("e2440fba-21f0-4b45-8dee-6f165132e646",tdata.id);
+		mtnbase=mtnbase.replace("e2440fba-21f0-4b45-8dee-6f165132e646",tdata.id);
+		rtlbase=rtlbase.replace("e2440fba-21f0-4b45-8dee-6f165132e646",tdata.id);
+		mcibase=mcibase.replace("mainport",tdata.port);
+		mtnbase=mtnbase.replace("mainport",tdata.port);
+		rtlbase=rtlbase.replace("mainport",tdata.port);
+		mcibase=mcibase.replace("mainhost",tdata.add);
+		mtnbase=mtnbase.replace("mainhost",tdata.add);
+		rtlbase=rtlbase.replace("mainhost",tdata.add);
+		mcibase=mcibase.replace("snihost",randsni+tdata.add);
+		mtnbase=mtnbase.replace("snihost",randsni+tdata.add);
+		rtlbase=rtlbase.replace("snihost",randsni+tdata.add);
+		document.write("vmess://"+btoa(mcibase)+"<br><br>");
+		document.write("vmess://"+btoa(mtnbase)+"<br><br>");
+		}
 		if (inp.includes("vless://")){
 		var mcibase="vless://mainuid@mciih.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
 		var mtnbase="vless://mainuid@ircl.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
@@ -41,7 +66,7 @@ function generateString(length) {
 		mcibase=mcibase.replace("snihost",randsni+inp.match(rehost)[1]);
 		mtnbase=mtnbase.replace("snihost",randsni+inp.match(rehost)[1]);
 		rtlbase=rtlbase.replace("snihost",randsni+inp.match(rehost)[1]);
-		document.write("vmess://"+btoa(mcibase)+"<br><br>");
-		document.write("vmess://"+btoa(mtnbase)+"<br><br>");
+		document.write("vless://"+btoa(mcibase)+"<br><br>");
+		document.write("vless://"+btoa(mtnbase)+"<br><br>");
 		}
 </script></html>
