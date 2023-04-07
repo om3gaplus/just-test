@@ -40,9 +40,9 @@ function generateString(length) {
 		document.write("vmess://"+btoa(mtnbase)+"<br><br>");
 		}
 		if (inp.includes("vless://")){
-		var mcibase="vless://mainuid@mciih.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
-		var mtnbase="vless://mainuid@ircl.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
-		var rtlbase="vless://mainuid@wffii.msskill.site:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
+		var mcibase="vless://mainuid@mci.hostgozarr.com:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
+		var mtnbase="vless://mainuid@mtnhostgozarr.com:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
+		var rtlbase="vless://mainuid@rtl.hostgozarr.com:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
 		var reuid= new RegExp("vless://(.*)?@");
 		var rehost= new RegExp("vless://.*?@(.*)?:");
 		var report= new RegExp("vless://.*?@.*?:([0-9]{2,5})");
@@ -66,7 +66,7 @@ function generateString(length) {
 		mcibase=mcibase.replace("snihost",randsni+inp.match(rehost)[1]);
 		mtnbase=mtnbase.replace("snihost",randsni+inp.match(rehost)[1]);
 		rtlbase=rtlbase.replace("snihost",randsni+inp.match(rehost)[1]);
-		document.write("vless://"+mcibase+"<br><br>");
-		document.write("vless://"+mtnbase+"<br><br>");
+		document.write(mcibase+"<br><br>");
+		document.write(mtnbase+"<br><br>");
 		}
 </script></html>
