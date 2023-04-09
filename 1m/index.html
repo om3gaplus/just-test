@@ -115,9 +115,9 @@ function copymci(){
 		
 		
 		if (inp.includes("vless://")){
-		var mcibase="vless://mainuid@mci.hostgozarr.com:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
-		var mtnbase="vless://mainuid@mtn.hostgozarr.com:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
-		var rtlbase="vless://mainuid@rtl.hostgozarr.com:443?path=%2Fdownloader%2Fmainport&security=tls&encryption=none&host=mainhost&type=ws&sni=snihost#mainname";
+		var mcibase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mci.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency-gem";
+		var mtnbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mtn.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency-gem";
+		var rtlbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@adsl.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency-gem";
 		var reuid= new RegExp("vless://(.*)?@");
 		var rehost= new RegExp("vless://.*?@(.*)?:");
 		var report= new RegExp("vless://.*?@.*?:([0-9]{2,5})");
