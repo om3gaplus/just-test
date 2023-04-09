@@ -37,8 +37,8 @@
 						<br>
 			<center><div id="mtn"></div></center>
 			<br>
-			<center><h3>rtl conecction</h3></center>
-						<center><button onclick="copyrtl()">Copy RTL link</button><center>
+			<center><h3>wifi conecction</h3></center>
+						<center><button onclick="copyrtl()">Copy Wifi link</button><center>
 						<br>
 			<center><div id="rtl"></div></center>
 			<br>
@@ -115,9 +115,9 @@ function copymci(){
 		
 		
 		if (inp.includes("vless://")){
-		var mcibase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mci.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency-gem";
-		var mtnbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mtn.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency-gem";
-		var rtlbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@adsl.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency-gem";
+		var mcibase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mci.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency+mci";
+		var mtnbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mtn.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency+mtn";
+		var rtlbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@adsl.hostgozarr.com:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozarr.com&type=ws&sni=snihost#gem+emergency+wifi";
 		var reuid= new RegExp("vless://(.*)?@");
 		var rehost= new RegExp("vless://.*?@(.*)?:");
 		var report= new RegExp("vless://.*?@.*?:([0-9]{2,5})");
