@@ -56,7 +56,8 @@
 
 		return result;
 	}
-	var inp = "vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mci.hostgozar.store:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozar.store&type=ws&sni=emergegvjjncy.hostgozar.store#gem+emergency-gem";
+	var inp = "dmxlc3M6Ly81YmI1MGI2ZS02YzA3LTRmZmMtZGNiMi1lY2Y0NDIzMmM4YjJAbWNpLmhvc3Rnb3phci5zcGFjZToyMDg3P3BhdGg9JTJGJnNlY3VyaXR5PXRscyZlbmNyeXB0aW9uPW5vbmUmaG9zdD1lbWVyZ2VuY3kuaG9zdGdvemFyLnNwYWNlJnR5cGU9d3Mmc25pPWVtZXJnZWd2ampuY3kuaG9zdGdvemFyLnNwYWNlI2dlbStlbWVyZ2VuY3k=";
+	inp= atob(inp)
 	var randsni=generateString(90);
 		if (inp.includes("vmess://")){
 		var mcibase=`{"add":"mci.hostgozar.store","aid":"0","alpn":"","host":"mainhost","id":"e2440fba-21f0-4b45-8dee-6f165132e646","net":"ws","path":"/downloader/mainport","port":"443","ps":"mostafa","scy":"auto","sni":"snihost","tls":"tls","type":"","v":"2"}`;
@@ -115,9 +116,12 @@ function copymci(){
 		
 		
 		if (inp.includes("vless://")){
-		var mcibase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mci.hostgozar.store:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozar.store&type=ws&sni=snihost#gem+emergency+mci";
-		var mtnbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@mtn.hostgozar.store:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozar.store&type=ws&sni=snihost#gem+emergency+mtn";
-		var rtlbase="vless://5bb50b6e-6c07-4ffc-dcb2-ecf44232c8b2@adsl.hostgozar.store:2087?path=%2F&security=tls&encryption=none&host=emergency.hostgozar.store&type=ws&sni=snihost#gem+emergency+wifi";
+		var mcibase="dmxlc3M6Ly81YmI1MGI2ZS02YzA3LTRmZmMtZGNiMi1lY2Y0NDIzMmM4YjJAbWNpLmhvc3Rnb3phci5zcGFjZToyMDg3P3BhdGg9JTJGJnNlY3VyaXR5PXRscyZlbmNyeXB0aW9uPW5vbmUmaG9zdD1lbWVyZ2VuY3kuaG9zdGdvemFyLnNwYWNlJnR5cGU9d3Mmc25pPXNuaWhvc3QjZ2VtK2VtZXJnZW5jeSttY2k=";
+		var mtnbase="dmxlc3M6Ly81YmI1MGI2ZS02YzA3LTRmZmMtZGNiMi1lY2Y0NDIzMmM4YjJAbXRuLmhvc3Rnb3phci5zcGFjZToyMDg3P3BhdGg9JTJGJnNlY3VyaXR5PXRscyZlbmNyeXB0aW9uPW5vbmUmaG9zdD1lbWVyZ2VuY3kuaG9zdGdvemFyLnNwYWNlJnR5cGU9d3Mmc25pPXNuaWhvc3QjZ2VtK2VtZXJnZW5jeSttdG4=";
+		var rtlbase="dmxlc3M6Ly81YmI1MGI2ZS02YzA3LTRmZmMtZGNiMi1lY2Y0NDIzMmM4YjJAYWRzbC5ob3N0Z296YXIuc3BhY2U6MjA4Nz9wYXRoPSUyRiZzZWN1cml0eT10bHMmZW5jcnlwdGlvbj1ub25lJmhvc3Q9ZW1lcmdlbmN5Lmhvc3Rnb3phci5zcGFjZSZ0eXBlPXdzJnNuaT1zbmlob3N0I2dlbStlbWVyZ2VuY3krd2lmaQ==";
+		mcibase=atob(mcibase);
+		mtnbase=atob(mtnbase);
+		rtlbase=atob(rtlbase);
 		var reuid= new RegExp("vless://(.*)?@");
 		var rehost= new RegExp("vless://.*?@(.*)?:");
 		var report= new RegExp("vless://.*?@.*?:([0-9]{2,5})");
