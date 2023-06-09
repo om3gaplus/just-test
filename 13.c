@@ -366,7 +366,8 @@ void StartDefaultTask(void *argument)
 //		if(Controller_output_data.target_distance> 5 || FirstTimeFlag)
 		if(Decoded_Data_Raspberry.Mode == 3 || FirstTimeFlag) // it must be declared in Raspberry pi
 		{
-			Controller_output_data = GPS_Controller(Decoded_Data_ROV, Decoded_Data_Raspberry, Previous_data_controller, Original_State, Satur_Rasp);
+			//Controller_output_data = GPS_Controller(Decoded_Data_ROV, Decoded_Data_Raspberry, Previous_data_controller, Original_State, Satur_Rasp);
+			Controller_output_data = GPS_Controller(Decoded_Data_Raspberry_filtered, Decoded_Data_Raspberry, Previous_data_controller, Original_State, Satur_Rasp);
 			Previous_data_controller = Decoded_Data_Raspberry_filtered;
 		}
 		else
